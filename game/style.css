@@ -1,0 +1,36 @@
+/* 
+ * Author: Nazmus Nasir
+ * Name: Game of Math
+ * Description: Get as many correct in 30 seconds as possible
+ * Github: https://github.com/naztronaut
+ */
+
+body {
+    text-align: center;
+}
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: 1px solid #000;
+    border-radius: 15px;
+    margin: 15px;
+    min-width: 150px;
+    cursor: pointer;
+    background-color: rgba(43, 121, 155, 1);
+    color: #fff;
+    font-weight: bold;
+}
+
+button:disabled {
+    background-color: rgba(43, 121, 155, 0.5);
+}
+
+#scoreDiv, #timerDiv {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#question {
+    font-size: 35px;
+    font-weight: bolder;
+}
