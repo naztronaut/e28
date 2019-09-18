@@ -66,6 +66,8 @@ function startGame(){
     points = 0;
     timer = 30;
     document.querySelector('#timer').innerText = timer + " seconds";
+    document.querySelector('#timer').style.color = 'black';
+    document.querySelector('#score').innerText = points;
     question();
     interval = window.setInterval(function() {
             timer--;
@@ -86,9 +88,15 @@ function startGame(){
 document.querySelector('#resetGame').addEventListener("click", function(e){
     if(document.querySelector('#resetGame').innerText == "Start Game") {
         startGame();
+        for(let i = 0; i < 3; i++) {
+            document.getElementsByClassName('answer')[i].disabled = false;
+        }
         document.querySelector('#resetGame').innerText = "Stop Game";
     } else {
         window.clearInterval(interval);
+        for(let i = 0; i < 3; i++) {
+            document.getElementsByClassName('answer')[i].disabled = true;
+        }
         document.querySelector('#resetGame').innerText = "Start Game";
     }
     e.preventDefault();
