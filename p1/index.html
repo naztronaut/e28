@@ -33,7 +33,7 @@
 					<th>Result</th>
 				</thead>
 				<tbody>
-					<tr v-for="ans in historicalAnswers" v-bind:class="{'table-success': ans.result == 'Correct!'}">
+					<tr v-for="ans in historicalAnswers.slice().reverse()" v-bind:class="{'table-success': ans.result == 'Correct!'}">
 						<td>{{ ans.question }}</td>
 						<td>{{ ans.yourAnswer }}</td>
 						<td>{{ ans.result }}</td>
