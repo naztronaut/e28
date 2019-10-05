@@ -109,7 +109,6 @@ let app = new Vue({
                     self.timer = "Time's Up!";
                     self.activeGame = false;
                 } else if(self.timer > 0 && self.timer < 6) {
-                    // document.querySelector('#timer').style.color = 'red';
                 }
             }, 1000);
         },
