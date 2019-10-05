@@ -13,7 +13,7 @@
 			Enter Your Name: <input type="text" v-model="name">
 			<div v-show="name">Hi, {{ name }}!</div>
 			<div>Score: {{ score }}</div>
-			<div v-bind:style="[(timer > 0 && timer < 6) ? 'color: red' : 'color: black']">Timer: {{ timer }}</div>
+			<div v-bind:style="{'color': ((timer > 0 && timer < 6) ? 'red' : 'black')}">Timer: {{ timer }}</div>
 			<button type="button" v-on:click="resetGame">{{ startGameText }}</button>
 			<div id="question">{{ questionText }} </div>
 			<span v-for="(answer, i) in answers">
@@ -40,6 +40,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</body>
 
 </html>
