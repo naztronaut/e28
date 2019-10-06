@@ -9,7 +9,7 @@
 	<body>
 		<div id="app" v-cloak>
 			<h1>{{ title }} <br /><small>{{ subtitle }}</small></h1>
-			<div class="secondaryText">Enter Your Name to play the game: <input type="text" v-model="name"></div>
+			<div class="secondaryText">Enter Your Name to play the game: <input type="text" v-model.trim="name"></div>
 			<div class="secondaryText">Place your bet! How many do you think you will get correct? <input type="number" v-model.number="bet" :disabled="activeGame"><br />
 				<small class="text-danger" v-show="bet < 1 && bet != null">Must enter a bet higher than 0.</small>
 			</div>
