@@ -10,9 +10,11 @@
 		<div id="app" v-cloak>
 			<h1>{{ title }} <br /><small>{{ subtitle }}</small></h1>
 			<div class="secondaryText">Enter Your Name to play the game: <input type="text" v-model="name"></div>
-			<div class="secondaryText">Plase your bet! How many do you think you will get correct? <input type="number" v-model.number="bet"></div>
-			<button type="button" v-on:click="resetGame" :disabled="bet == null || bet <= 0">{{ startGameText }}</button>
-			<div v-show="name && bet">
+			<div class="secondaryText">Place your bet! How many do you think you will get correct? <input type="number" v-model.number="bet" :disabled="activeGame"><br />
+				<small class="text-danger" v-show="bet < 1 && bet != null">Must enter a bet higher than 0.</small>
+			</div>
+			<button type="button" v-on:click="resetGame" :disabled="(!name) || (bet == null || bet <= 0)">{{ startGameText }}</button>
+			<div v-show="name && (bet > 0)">
 				<div>Hi, {{ name }}!</div>
 				
 				<div class="primaryText">Score: {{ score }}</div>
