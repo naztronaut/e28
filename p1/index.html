@@ -9,12 +9,16 @@
 	<body>
 		<div id="app" v-cloak>
 			<h1>{{ title }} <br /><small>{{ subtitle }}</small></h1>
-			Enter Your Name to play the game: <input type="text" v-model="name">
-			<div v-show="name">
+			<div class="secondaryText">Enter Your Name to play the game: <input type="text" v-model="name"></div>
+			<div class="secondaryText">Plase your bet! How many do you think you will get correct? <input type="number" v-model.number="bet"></div>
+			<button type="button" v-on:click="resetGame" :disabled="bet == null || bet <= 0">{{ startGameText }}</button>
+			<div v-show="name && bet">
 				<div>Hi, {{ name }}!</div>
-				<div id="scoreDiv">Score: {{ score }}</div>
-				<div id="timerDiv" v-bind:style="{'color': ((timer > 0 && timer < 6) ? 'red' : 'black')}">Timer: {{ timer }}</div>
-				<button type="button" v-on:click="resetGame">{{ startGameText }}</button>
+				
+				<div class="primaryText">Score: {{ score }}</div>
+				<div class="primaryText" :class="{'text-success': score >= bet, 'text-danger': score < bet}">{{ betResult }}</div>
+				<div class="primaryText" v-bind:style="{'color': ((timer > 0 && timer < 6) ? 'red' : 'black')}">Timer: {{ timer }}</div>
+				
 				<div id="question">{{ questionText }} </div>
 				<span v-for="(answer, i) in answers">
 					<button type="button" v-on:click="selectAnswer" :disabled="!activeGame">{{ randomCorrectAnswer(i) || answer }}</button>

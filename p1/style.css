@@ -28,9 +28,16 @@ button:disabled {
     background-color: rgba(43, 121, 155, 0.5);
 }
 
-#scoreDiv, #timerDiv {
+.primaryText {
     font-size: 24px;
     font-weight: bold;
+    padding: 10px;
+}
+
+.secondaryText {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
 }
 
 #question {

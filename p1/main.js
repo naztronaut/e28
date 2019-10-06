@@ -9,6 +9,8 @@ let app = new Vue({
     el: '#app',
     data: {
         name: null,
+        bet: null,
+        betResult: null,
         score: 0,
         timer: 30,
         activeGame: false,
@@ -98,6 +100,7 @@ let app = new Vue({
             this.timer = 30;
             this.question();
             this.runTimer();
+            this.betResult = null;
         },
         runTimer: function(){
             let self = this;
@@ -108,6 +111,13 @@ let app = new Vue({
                     self.startGameText = "Start Game";
                     self.timer = "Time's Up!";
                     self.activeGame = false;
+                    if(self.score > self.bet) {
+                        self.betResult = 'You win the bet! You scored higher than you thought you would!';
+                    } else if(self.score == self.bet) {
+                        self.betResult = 'You made the perfect bet!';
+                    } else {
+                        self.betResult = 'Oops, you had too much confidence in yourself :(';
+                    }
                 } else if(self.timer > 0 && self.timer < 6) {
                 }
             }, 1000);
