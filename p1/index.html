@@ -14,7 +14,7 @@
 				<small class="text-danger" v-show="bet < 1 && bet != null">Must enter a bet higher than 0.</small>
 			</div>
 			<button type="button" v-on:click="resetGame" :disabled="(!name) || (bet == null || bet <= 0)">{{ startGameText }}</button>
-			<div v-show="name && (bet > 0)">
+			<div v-show="(name && (bet > 0)) || gameStartedOnce">
 				<div>Hi, {{ name }}!</div>
 				
 				<div class="primaryText">Score: {{ score }}</div>

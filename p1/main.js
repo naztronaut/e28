@@ -14,6 +14,7 @@ let app = new Vue({
         score: 0,
         timer: 30,
         activeGame: false,
+        gameStartedOnce: false,
         title: 'Math Game',
         subtitle: 'How many can you get correct in 30 seconds?',
         isAdmin: true,
@@ -98,6 +99,8 @@ let app = new Vue({
         startGame: function() {
             this.score = 0;
             this.timer = 30;
+            // so that the game doesn't disappear even if name and bet are invalidated later if game has started once
+            this.gameStartedOnce = true;
             this.question();
             this.runTimer();
             this.betResult = null;
@@ -118,7 +121,6 @@ let app = new Vue({
                     } else {
                         self.betResult = 'Oops, you had too much confidence in yourself :(';
                     }
-                } else if(self.timer > 0 && self.timer < 6) {
                 }
             }, 1000);
         },
