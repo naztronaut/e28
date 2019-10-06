@@ -10,7 +10,7 @@
 
 ## Notes for the instructor
 - Have to enter your name before game interface shows
-- Have to also enter a "bet" - must be above 1
+- Have to also enter a "bet" - must be a value of 1 or higher
 - The answers variables are stored outside of the vue `data` property so no one can cheat and get the right answer from the Vue console
 - There's currently a bug where if the two random numbers generated are the same and they are being subtracted,
 their answer results in 0, aka false. Was only able to replicate this twice. In that case the button won't display the
