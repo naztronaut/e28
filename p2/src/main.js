@@ -109,6 +109,7 @@ let app = new Vue({
             this.id++;
             this.score = 0;
             this.timer = 30;
+            this.historicalAnswers = []; // resets answers on game restart
             // so that the game doesn't disappear even if name and bet are invalidated later if game has started once
             this.gameStartedOnce = true;
             this.question();
@@ -128,26 +129,26 @@ let app = new Vue({
                         self.betResult = 'You win the bet! You scored higher than you thought you would!';
                         self.gameHistory.push({
                             id: self.id,
-                            winOrLose: 'Winner!'
+                            winOrLose: 'Winner!',
+                            history: self.historicalAnswers
                         });
                     } else if(self.score == self.bet) {
                         self.betResult = 'You made the perfect bet!';
                         self.gameHistory.push({
                             id: self.id,
-                            winOrLose: 'Tie!'
+                            winOrLose: 'Tie!',
+                            history: self.historicalAnswers
                         });
                     } else {
                         self.betResult = 'Oops, you had too much confidence in yourself :(';
                         self.gameHistory.push({
                             id: self.id,
-                            winOrLose: 'LOSER!'
+                            winOrLose: 'LOSER!',
+                            history: self.historicalAnswers
                         });
                     }
                 }
             }, 1000);
-        },
-        clearResults: function() {
-            this.historicalAnswers = [];
         },
         deleteGame: function (id) {
             this.gameHistory = this.gameHistory.filter(function (g) {
@@ -155,6 +156,9 @@ let app = new Vue({
                     return g;
                 }
             });
+        },
+        showHistory: function (history) {
+            this.historicalAnswers = history;
         }
     }
 });

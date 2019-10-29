@@ -1,12 +1,17 @@
-# Project 1
+# Project 2
 + By: Nazmus Nasir
-+ Production URL: [http://p1.nazm.us](http://p1.nazm.us)
++ Production URL: [http://p12.nazm.us](http://p2.nazm.us)
+
+## Build strategy
+*Put an x in the build strategy you used. Put an x in each if you tackled both.*
++ [x] Integrated
++ [ ] Comprehensive
+
 
 ## Resources
-- Bootstrap CSS Framework: [https://getbootstrap.com/](https://getbootstrap.com/)
-- Inverted v-for loop for the table: [https://stackoverflow.com/a/47365991/9948721](https://stackoverflow.com/a/47365991/9948721)
-- Disabled buttons example: [https://jsfiddle.net/willywg/2g7m5qy5/](https://jsfiddle.net/willywg/2g7m5qy5/)
-- setInterval in Vue.js method: [https://stackoverflow.com/a/43335772/9948721](https://stackoverflow.com/a/43335772/9948721)
+- Bootstrap CSS Framework: [https://getbootstrap.com/](https://getbootstrap.com/) - installed via NPM
+- .prevent event modifier example: [https://stackoverflow.com/a/49146048/9948721](https://stackoverflow.com/a/49146048/9948721)
+- Bind multiple classes: [https://forum.vuejs.org/t/how-to-bind-the-multiple-class-in-vue2/21626/3](https://forum.vuejs.org/t/how-to-bind-the-multiple-class-in-vue2/21626/3)
 
 ## Notes for the instructor
 - Have to enter your name before game interface shows
@@ -15,5 +20,4 @@
 - There's currently a bug where if the two random numbers generated are the same and they are being subtracted,
 their answer results in 0, aka false. Was only able to replicate this twice. In that case the button won't display the
 answer, it will display A, B, or C.
-- Bootstrap was only originally used for table because of its predefined classes. It was a big time saver.
-I used it for its text classes as well when I implemented the 'betting' system.
+- The reset score button was removed because once a game finishes, the data is stored inside the history property of the child component

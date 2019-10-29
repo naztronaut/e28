@@ -105,11 +105,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      deleted: false,
-      history: []
+      deleted: false
     };
   },
   props: {
@@ -120,7 +122,8 @@ __webpack_require__.r(__webpack_exports__);
     'winOrLose': {
       type: String,
       "default": ''
-    }
+    },
+    history: []
   },
   methods: {
     deleteHistory: function deleteHistory() {
@@ -620,6 +623,11 @@ var render = function() {
         "div",
         {
           staticClass: "card text-white bg-secondary mb-3",
+          class: {
+            "bg-secondary": _vm.winOrLose == "LOSER!",
+            "bg-success": _vm.winOrLose == "Winner!",
+            "bg-info": _vm.winOrLose == "Tie!"
+          },
           staticStyle: { "max-width": "18rem" }
         },
         [
@@ -639,11 +647,27 @@ var render = function() {
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
+                    $event.preventDefault()
+                    return _vm.$emit("show-history", _vm.history)
+                  }
+                }
+              },
+              [_vm._v("History")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-danger",
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
                     return _vm.$emit("delete-game", _vm.id)
                   }
                 }
               },
-              [_vm._v("Delete Game")]
+              [_vm._v("Delete")]
             )
           ])
         ]
@@ -12958,7 +12982,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     startGame: function startGame() {
       this.id++;
       this.score = 0;
-      this.timer = 30; // so that the game doesn't disappear even if name and bet are invalidated later if game has started once
+      this.timer = 30;
+      this.historicalAnswers = []; // resets answers on game restart
+      // so that the game doesn't disappear even if name and bet are invalidated later if game has started once
 
       this.gameStartedOnce = true;
       this.question();
@@ -12980,19 +13006,22 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
             self.betResult = 'You win the bet! You scored higher than you thought you would!';
             self.gameHistory.push({
               id: self.id,
-              winOrLose: 'Winner!'
+              winOrLose: 'Winner!',
+              history: self.historicalAnswers
             });
           } else if (self.score == self.bet) {
             self.betResult = 'You made the perfect bet!';
             self.gameHistory.push({
               id: self.id,
-              winOrLose: 'Tie!'
+              winOrLose: 'Tie!',
+              history: self.historicalAnswers
             });
           } else {
             self.betResult = 'Oops, you had too much confidence in yourself :(';
             self.gameHistory.push({
               id: self.id,
-              winOrLose: 'LOSER!'
+              winOrLose: 'LOSER!',
+              history: self.historicalAnswers
             });
           }
         }
@@ -13007,6 +13036,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
           return g;
         }
       });
+    },
+    showHistory: function showHistory(history) {
+      this.historicalAnswers = history;
     }
   }
 });
