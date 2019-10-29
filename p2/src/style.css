@@ -1,0 +1,46 @@
+[v-cloak] {
+    display: none;
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    font-family: monospace;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: 1px solid #000;
+    border-radius: 15px;
+    margin: 15px;
+    min-width: 150px;
+    cursor: pointer;
+    background-color: rgba(43, 121, 155, 1);
+    color: #fff;
+    font-weight: bold;
+}
+
+button:disabled {
+    background-color: rgba(43, 121, 155, 0.5);
+}
+
+.primaryText {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.secondaryText {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#question {
+    font-size: 35px;
+    font-weight: bolder;
+}
