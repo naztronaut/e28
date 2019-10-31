@@ -1,6 +1,6 @@
 # Project 2
 + By: Nazmus Nasir
-+ Production URL: [http://p12.nazm.us](http://p2.nazm.us)
++ Production URL: [http://p2.nazm.us](http://p2.nazm.us)
 
 ## Build strategy
 *Put an x in the build strategy you used. Put an x in each if you tackled both.*

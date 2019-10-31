@@ -1,11 +1,11 @@
 <template>
-	<div  v-if="!deleted" class="card text-white bg-secondary mb-3"
+	<div v-if="!deleted" class="card text-white bg-secondary mb-3"
 	      :class="{'bg-secondary': winOrLose == 'LOSER!', 'bg-success': winOrLose == 'Winner!', 'bg-info': winOrLose == 'Tie!'}"
 	      style="max-width: 18rem;">
 		<div class="card-header">Game #{{ id }}</div>
 		<div class="card-body">
 			<h5 class="card-title">{{ winOrLose }}</h5>
-			<!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+			<p class="card-text">You bet {{ bet }} and you achieved {{ numCorrect }}</p>
 			<a href="#" class="btn btn-primary" @click.prevent="$emit('show-history', history)">History</a>
 			<a href="#" class="btn btn-danger" @click.prevent="$emit('delete-game', id)">Delete</a>
 		</div>
@@ -27,7 +27,18 @@
                 type: String,
 	            default: ''
             },
-            history: []
+		    'bet': {
+	            type: Number,
+			    default: 0
+		    },
+		    'numCorrect': {
+	            type: Number,
+			    default: 0
+		    },
+            'history': {
+	            type: Array,
+	            default: []
+            }
 	    },
 	    methods: {
             deleteHistory: function () {
@@ -37,4 +48,15 @@
 	    template: '#historical-answers'
     }
 </script>
-<style></style>
+<style scoped>
+	.card {
+		box-shadow: 4px 4px #ccc;
+	}
+	div {
+		text-shadow: 2px 2px 2px #444;
+	}
+	.btn {
+		box-shadow: 2px 2px #444;
+		margin: 5px 5px 2px;
+	}
+</style>
