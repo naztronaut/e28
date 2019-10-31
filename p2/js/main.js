@@ -123,7 +123,15 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       "default": ''
     },
-    history: {
+    'bet': {
+      type: Number,
+      "default": 0
+    },
+    'numCorrect': {
+      type: Number,
+      "default": 0
+    },
+    'history': {
       type: Array,
       "default": []
     }
@@ -132,8 +140,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteHistory: function deleteHistory() {
       this.deleted = true;
     }
-  },
-  template: '#historical-answers'
+  }
 });
 
 /***/ }),
@@ -1286,6 +1293,14 @@ var render = function() {
           _c("div", { staticClass: "card-body" }, [
             _c("h5", { staticClass: "card-title" }, [
               _vm._v(_vm._s(_vm.winOrLose))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v("You bet "),
+              _c("strong", [_vm._v(_vm._s(_vm.bet))]),
+              _vm._v(" and you scored "),
+              _c("strong", [_vm._v(_vm._s(_vm.numCorrect))]),
+              _vm._v(".")
             ]),
             _vm._v(" "),
             _c(
@@ -13614,7 +13629,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }
     },
     randomCorrectAnswer: function randomCorrectAnswer(i) {
-      // TODO: Is this really the best way to do this??
       if (i == rca) {
         return correctAnswer;
       } else if (i == 0) {
@@ -13667,28 +13681,25 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
           self.startGameText = "Start Game";
           self.timer = "Time's Up!";
           self.activeGame = false;
+          var gameHistoryObj = {
+            id: self.id,
+            bet: self.bet,
+            score: self.score,
+            history: self.historicalAnswers
+          };
 
           if (self.score > self.bet) {
             self.betResult = 'You win the bet! You scored higher than you thought you would!';
-            self.gameHistory.push({
-              id: self.id,
-              winOrLose: 'Winner!',
-              history: self.historicalAnswers
-            });
+            gameHistoryObj.winOrLose = 'Winner!';
+            self.gameHistory.push(gameHistoryObj);
           } else if (self.score == self.bet) {
             self.betResult = 'You made the perfect bet!';
-            self.gameHistory.push({
-              id: self.id,
-              winOrLose: 'Tie!',
-              history: self.historicalAnswers
-            });
+            gameHistoryObj.winOrLose = 'Tie!';
+            self.gameHistory.push(gameHistoryObj);
           } else {
             self.betResult = 'Oops, you had too much confidence in yourself :(';
-            self.gameHistory.push({
-              id: self.id,
-              winOrLose: 'LOSER!',
-              history: self.historicalAnswers
-            });
+            gameHistoryObj.winOrLose = 'LOSER!';
+            self.gameHistory.push(gameHistoryObj);
           }
         }
       }, 1000);

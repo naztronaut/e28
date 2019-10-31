@@ -75,7 +75,6 @@ let app = new Vue({
                 }
         },
         randomCorrectAnswer: function(i) {
-            // TODO: Is this really the best way to do this??
             if(i == rca) {
                 return correctAnswer;
             } else if(i == 0) {
@@ -125,27 +124,24 @@ let app = new Vue({
                     self.startGameText = "Start Game";
                     self.timer = "Time's Up!";
                     self.activeGame = false;
+                    let gameHistoryObj = {
+                      id: self.id,
+                      bet: self.bet,
+                      score: self.score,
+                      history: self.historicalAnswers
+                    };
                     if(self.score > self.bet) {
                         self.betResult = 'You win the bet! You scored higher than you thought you would!';
-                        self.gameHistory.push({
-                            id: self.id,
-                            winOrLose: 'Winner!',
-                            history: self.historicalAnswers
-                        });
+                        gameHistoryObj.winOrLose = 'Winner!';
+                        self.gameHistory.push(gameHistoryObj);
                     } else if(self.score == self.bet) {
                         self.betResult = 'You made the perfect bet!';
-                        self.gameHistory.push({
-                            id: self.id,
-                            winOrLose: 'Tie!',
-                            history: self.historicalAnswers
-                        });
+                        gameHistoryObj.winOrLose = 'Tie!';
+                        self.gameHistory.push(gameHistoryObj);
                     } else {
                         self.betResult = 'Oops, you had too much confidence in yourself :(';
-                        self.gameHistory.push({
-                            id: self.id,
-                            winOrLose: 'LOSER!',
-                            history: self.historicalAnswers
-                        });
+                        gameHistoryObj.winOrLose = 'LOSER!';
+                        self.gameHistory.push(gameHistoryObj);
                     }
                 }
             }, 1000);

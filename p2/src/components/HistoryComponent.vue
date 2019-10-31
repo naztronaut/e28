@@ -5,7 +5,7 @@
 		<div class="card-header">Game #{{ id }}</div>
 		<div class="card-body">
 			<h5 class="card-title">{{ winOrLose }}</h5>
-			<p class="card-text">You bet {{ bet }} and you achieved {{ numCorrect }}</p>
+			<p class="card-text">You bet <strong>{{ bet }}</strong> and you scored <strong>{{ numCorrect }}</strong>.</p>
 			<a href="#" class="btn btn-primary" @click.prevent="$emit('show-history', history)">History</a>
 			<a href="#" class="btn btn-danger" @click.prevent="$emit('delete-game', id)">Delete</a>
 		</div>
@@ -44,8 +44,7 @@
             deleteHistory: function () {
 	            this.deleted = true;
             }
-	    },
-	    template: '#historical-answers'
+	    }
     }
 </script>
 <style scoped>

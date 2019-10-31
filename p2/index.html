@@ -28,8 +28,14 @@
 				<div class="container">
 					<div class="row">
 						<div v-for="game in gameHistory" class="col-3">
-							<history-component :key="game.id" :id="game.id" :history="game.history" :win-or-lose="game.winOrLose"
-							                   @delete-game="deleteGame($event)" @show-history="showHistory($event)"></history-component>
+							<history-component :key="game.id"
+							                   :id="game.id"
+							                   :history="game.history"
+							                   :win-or-lose="game.winOrLose"
+							                   :bet="game.bet"
+							                   :num-correct="game.score"
+							                   @delete-game="deleteGame($event)"
+							                   @show-history="showHistory($event)"></history-component>
 						</div>
 					</div>
 				</div>
@@ -38,12 +44,14 @@
 					<div class="row" v-if="historicalAnswers.length > 0">
 						<table class="table table-striped table-bordered table-hover">
 							<thead>
+								<th>#</th>
 								<th>Question</th>
 								<th>Your Answer</th>
 								<th>Result</th>
 							</thead>
 							<tbody>
-								<tr v-for="ans in historicalAnswers.slice().reverse()" v-bind:class="{'table-success': ans.result == 'Correct!'}">
+								<tr v-for="(ans, i) in historicalAnswers.slice().reverse()" v-bind:class="{'table-success': ans.result == 'Correct!'}">
+									<th scope="row">{{ (historicalAnswers.length - i) }}</th>
 									<td>{{ ans.question }}</td>
 									<td>{{ ans.yourAnswer }}</td>
 									<td>{{ ans.result }}</td>
