@@ -10,7 +10,7 @@
 
 ## Resources
 - Bootstrap CSS Framework: [https://getbootstrap.com/](https://getbootstrap.com/) - installed via NPM
-- .prevent event modifier example: [https://stackoverflow.com/a/49146048/9948721](https://stackoverflow.com/a/49146048/9948721)
+- `.prevent` event modifier example: [https://stackoverflow.com/a/49146048/9948721](https://stackoverflow.com/a/49146048/9948721)
 - Bind multiple classes: [https://forum.vuejs.org/t/how-to-bind-the-multiple-class-in-vue2/21626/3](https://forum.vuejs.org/t/how-to-bind-the-multiple-class-in-vue2/21626/3)
 
 ## Notes for the instructor
@@ -20,4 +20,6 @@
 - There's currently a bug where if the two random numbers generated are the same and they are being subtracted,
 their answer results in 0, aka false. Was only able to replicate this twice. In that case the button won't display the
 answer, it will display A, B, or C.
-- The reset score button was removed because once a game finishes, the data is stored inside the history property of the child component
+- The reset table button was removed because once a game finishes, the data is stored inside the history property of the child component.
+Starting/restarting a game resets this table now.
+- Using bootstrap class `col-3` to render the game cards.
