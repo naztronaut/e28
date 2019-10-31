@@ -6,8 +6,14 @@
 		<div class="card-body">
 			<h5 class="card-title">{{ winOrLose }}</h5>
 			<p class="card-text">You bet <strong>{{ bet }}</strong> and you scored <strong>{{ numCorrect }}</strong>.</p>
-			<a href="#" class="btn btn-primary" @click.prevent="$emit('show-history', history)">History</a>
-			<a href="#" class="btn btn-danger" @click.prevent="$emit('delete-game', id)">Delete</a>
+			<div class="row">
+				<div class="col">
+					<button class="btn btn-primary" @click.prevent="$emit('show-history', history)" :disabled="activeGame">History</button>
+				</div>
+				<div class="col">
+					<button class="btn btn-danger" @click.prevent="$emit('delete-game', id)">Delete</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -38,7 +44,11 @@
             'history': {
 	            type: Array,
 	            default: []
-            }
+            },
+		    'activeGame': {
+	            type: Boolean,
+			    default: false
+		    }
 	    },
 	    methods: {
             deleteHistory: function () {
@@ -57,5 +67,8 @@
 	.btn {
 		box-shadow: 2px 2px #444;
 		margin: 5px 5px 2px;
+	}
+	button {
+		min-width: 0!important;
 	}
 </style>
