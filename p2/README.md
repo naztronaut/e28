@@ -16,10 +16,11 @@
 ## Notes for the instructor
 - Have to enter your name before game interface shows
 - Have to also enter a "bet" - must be a value of 1 or higher
-- The answers variables are stored outside of the vue `data` property so no one can cheat and get the right answer from the Vue console
 - There's currently a bug where if the two random numbers generated are the same and they are being subtracted,
-their answer results in 0, aka false. Was only able to replicate this twice. In that case the button won't display the
+their answer results in 0, aka false. Was only able to replicate this a few times. In that case the button won't display the
 answer, it will display A, B, or C.
-- The reset table button was removed because once a game finishes, the data is stored inside the history property of the child component.
+- The 'reset table' button was removed because once a game finishes, the data is stored inside the history property of the child component.
 Starting/restarting a game resets this table now.
-- Using bootstrap class `col-3` to render the game cards.
+- Using bootstrap class `col-3` to render the game cards so there should be a maximum of 4 cards per row.
+- The 'History' button on the cards are disabled when game is active. This is to counteract a bug where you can override the results in the current table with the historical data.
+- History does not save if you manually stop the game. Timer must run out for the card to appear with history.
