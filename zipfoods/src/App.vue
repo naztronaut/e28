@@ -1,11 +1,10 @@
 <template>
   <div id="app">
     <img id="logo" alt="Vue logo" src="./assets/images/zipfoods-logo.png">
-    <p>ZipFoods is your one-stop-shop for convenient online grocery shopping in the greater Boston area.</p>
     <nav>
       <ul>
         <li v-for='link in links' :key='link'>
-          <router-link exact :to='paths[link]'>{{ link }}</router-link>
+          <router-link exact :to='{name: link}'>{{ link }}</router-link>
         </li>
       </ul>
     </nav>
@@ -25,11 +24,11 @@ export default {
           products: products,
           page: 'home',
           links: ['home', 'products', 'categories'],
-          paths: {
-              home: '/',
-              products: '/products',
-              categories: '/categories'
-          }
+          // paths: {
+          //     home: '/',
+          //     products: '/products',
+          //     categories: '/categories'
+          // }
       }
     }
 }
