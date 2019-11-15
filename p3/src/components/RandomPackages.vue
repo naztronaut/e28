@@ -18,8 +18,28 @@
 </template>
 
 <script>
+    const axios = require('axios');
     export default {
-        name: "RandomPackages"
+        name: "RandomPackages",
+		data: function(){
+            return {
+                packages: null
+            }
+		},
+		methods: {
+          randomPackages: function () {
+			// nothing
+          }
+		},
+        mounted() {
+            axios
+                .get(
+                    'https://my-json-server.typicode.com/naztronaut/e28api/db'
+                )
+                .then(response => {
+                    this.packages = response
+                });
+        }
     }
 </script>
 
