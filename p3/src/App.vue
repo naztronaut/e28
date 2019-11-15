@@ -7,7 +7,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active" v-for='link in links' :key='link'>
+          <li class="nav-item active" v-for='link in links' :key='link.context'>
             <router-link class="nav-link" exact :to='{name: link.context}'>{{ link.name }}</router-link>
             <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
           </li>

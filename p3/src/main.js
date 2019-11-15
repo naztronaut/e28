@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import HomeComponent from './components/HomeComponent.vue';
 import MyPackages from './components/MyPackages.vue';
 import AllPackages from './components/AllPackages.vue';
+import PackageDetail from './components/PackageDetail';
 
 Vue.config.productionTip = false
 
@@ -13,7 +14,9 @@ Vue.use(VueRouter);
 const routes = [
     {path: '/', name: 'home', component: HomeComponent},
     {path: '/myPackages', name: 'myPackages', component: MyPackages},
-    {path: '/allPackages', name: 'allPackages', component: AllPackages}
+    {path: '/allPackages', name: 'allPackages', component: AllPackages},
+    {path: '/packageDetail/:id',  name: 'packageDetail', component: PackageDetail},
+    {path: '*', redirect: '/'}
 ];
 
 const router = new VueRouter({
