@@ -1,0 +1,146 @@
+{
+  "packages": [
+    {
+      "id": 1,
+      "name": "bootstrap-vue",
+      "installer": "bootstrap-vue",
+      "description": "BootstrapVue, with over 40 available plugins and more than 80 custom components, provides one of the most comprehensive implementations of the Bootstrap v4.3 component and grid system for Vue.js, complete with extensive and automated WAI-ARIA accessibility markup.",
+      "category": "Styling"
+    },
+    {
+      "id": 2,
+      "name": "vue-lazyload",
+      "installer": "vue-lazyload",
+      "description": "Vue module for lazyloading images in your applications.",
+      "category": "Styling"
+    },
+    {
+      "id": 3,
+      "name": "vue-fontawesome",
+      "installer": "@fortawesome/vue-fontawesome",
+      "description": "Font Awesome 5 Vue component using SVG with JS",
+      "category": "Styling"
+    },
+    {
+      "id": 4,
+      "name": "Vue.js notifications",
+      "installer": "vue-notification",
+      "description": "Integrated Alerts for Vue",
+      "category": "UI Components"
+    },
+    {
+      "id": 5,
+      "name": "Vue.Draggable",
+      "installer": "vuedraggable",
+      "description": "Vue component (Vue.js 2.0) or directive (Vue.js 1.0) allowing drag-and-drop and synchronization with view model array.",
+      "category": "UI Components"
+    },
+    {
+      "id": 6,
+      "name": "Sortable.js",
+      "installer": "sortablejs",
+      "description": "Sortable is a JavaScript library for reorderable drag-and-drop lists.",
+      "category": "UI Components"
+    },
+    {
+      "id": 7,
+      "name": "vue-fullcalendar",
+      "installer": "vue-full-calendar",
+      "description": "Full Calendar for Vue",
+      "category": "Datetime"
+    },
+    {
+      "id": 8,
+      "name": "vue-datetime",
+      "installer": "vue-datetime",
+      "description": "Mobile friendly datetime picker for Vue. Supports date, datetime and time modes, i18n and disabling dates.",
+      "category": "Datetime"
+    },
+    {
+      "id": 9,
+      "name": "vue-moment",
+      "installer": "vue-moment",
+      "description": "Handy Moment.js filters for your Vue.js project.",
+      "category": "Datetime"
+    },
+    {
+      "id": 10,
+      "name": "Vue Visual",
+      "installer": "vue-visual",
+      "description": "Vue 2 image and video loader supporting lazy loading, cover videos, and more!",
+      "category": "Media"
+    },
+    {
+      "id": 11,
+      "name": "vue-avatar",
+      "installer": "vue-avatar",
+      "description": "An avatar component for vue.js.",
+      "category": "UI Component"
+    },
+    {
+      "id": 12,
+      "name": "vue-gallery",
+      "installer": "vue-gallery",
+      "description": "VueJS responsive and customizable image and video gallery, carousel and lightbox, optimized for both mobile and desktop web browsers.",
+      "category": "Gallery"
+    },
+    {
+      "id": 13,
+      "name": "vue-gallery",
+      "installer": "@fawmi/vue-gallery",
+      "description": "A responsive, customizable and touch and mobile ready VueJS image and video gallery, carousel and lightbox built with modern Javascript.",
+      "category": "Gallery"
+    },
+    {
+      "id": 14,
+      "name": "vue-navigation-bar",
+      "installer": "vue-navigation-bar",
+      "description": "A simple, pretty navbar for your Vue projects.",
+      "category": "Navigation"
+    },
+    {
+      "id": 15,
+      "name": "vue-axios",
+      "installer": "vue-axios",
+      "description": "A small wrapper for integrating axios to Vuejs",
+      "category": "AJAX"
+    },
+    {
+      "id": 16,
+      "name": "axios",
+      "installer": "axios",
+      "description": "Promise based HTTP client for the browser and node.js",
+      "category": "AJAX"
+    },
+    {
+      "id": 17,
+      "name": "XMLHttpRequest Emulation for node.js",
+      "installer": "xhr2",
+      "description": "This is an npm package that implements the W3C XMLHttpRequest specification on top of the node.js APIs.",
+      "category": "AJAX"
+    },
+    {
+      "id": 18,
+      "name": "blueimp Gallery",
+      "installer": "blueimp-gallery",
+      "description": "blueimp Gallery is a touch-enabled, responsive and customizable image and video gallery, carousel and lightbox, optimized for both mobile and desktop web browsers.",
+      "category": "Gallery"
+    },
+    {
+      "id": 19,
+      "name": "navigation",
+      "installer": "navigation",
+      "description": "A simple JS Navigation",
+      "category": "Navigation"
+    },
+    {
+      "id": 20,
+      "name": "datetime-js",
+      "installer": "DateTime Script",
+      "description": "Customize output for a javascript Date object",
+      "category": "Datetime"
+    }
+  ],
+  "myPackages": [],
+  "savedPackages": []
+}
