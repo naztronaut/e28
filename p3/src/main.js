@@ -16,7 +16,7 @@ const routes = [
     {path: '/', name: 'home', component: HomeComponent},
     {path: '/myPackages', name: 'myPackages', component: MyPackages},
     {path: '/allPackages', name: 'allPackages', component: AllPackages},
-    {path: '/packageDetail/:id',  name: 'packageDetail', component: PackageDetail},
+    {path: '/packageDetail/:id',  name: 'packageDetail', component: PackageDetail, props: true},
     {path: '/addPackage',  name: 'addPackage', component: AddPackage},
     {path: '*', redirect: '/'}
 ];

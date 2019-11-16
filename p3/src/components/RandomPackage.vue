@@ -4,8 +4,8 @@
 			<div class="card-body">
 				<h5 class="card-title">{{ randPackage.name }}</h5>
 				<h6 class="card-subtitle mb-2 text-muted">{{ randPackage.category }}</h6>
-				<p class="card-text">{{ randPackage.description }}</p>
-				<add-package-actions></add-package-actions>
+				<p class="card-text">{{ randPackage.description }} {{ randPackage.id }} 1</p>
+				<add-package-actions :package-id="randPackage.id"></add-package-actions>
 			</div>
 		</div>
 	</div>
