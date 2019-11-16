@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<router-link class="btn btn-primary" exact :to='{name: "addPackage"}'>Add Package</router-link>
 		<div class="card text-left" v-for='pack in allPackages' :key="pack.id">
 			<div class="card-body">
 				<h5 class="card-title">{{ pack.name }}</h5>
@@ -12,7 +13,7 @@
 </template>
 
 <script>
-	import AddPackage from './AddPackage.vue';
+	import AddPackage from './AddPackageActions.vue';
     const axios = require('axios');
     export default {
         name: "AllPackages",
