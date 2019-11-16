@@ -1,18 +1,20 @@
 <template>
 	<div>Welcome to the home component. See some random Vue Packages below!
 		<div class="container">
-			<random-packages></random-packages>
+			<random-package></random-package>
+			<random-package></random-package>
+			<random-package></random-package>
 		</div>
 	</div>
 	
 </template>
 
 <script>
-	import RandomPackages from './RandomPackages.vue';
+	import RandomPackage from './RandomPackage.vue';
 	
     export default {
         name: "HomeComponent",
-		components: {RandomPackages}
+		components: {RandomPackage}
     }
 </script>
 

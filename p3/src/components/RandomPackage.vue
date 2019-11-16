@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<div class="card text-left" v-for='pack in allPackages' :key="pack.id">
+		<div class="card text-left">
 			<div class="card-body">
-				<h5 class="card-title">{{ pack.name }}</h5>
-				<h6 class="card-subtitle mb-2 text-muted">{{ pack.category }}</h6>
-				<p class="card-text">{{ pack.description }}</p>
+				<h5 class="card-title">{{ randPackage.name }}</h5>
+				<h6 class="card-subtitle mb-2 text-muted">{{ randPackage.category }}</h6>
+				<p class="card-text">{{ randPackage.description }}</p>
 				<add-package></add-package>
 			</div>
 		</div>
@@ -12,23 +12,23 @@
 </template>
 
 <script>
-	import AddPackage from './AddPackage.vue';
+    import AddPackage from './AddPackage.vue';
     const axios = require('axios');
     export default {
-        name: "AllPackages",
+        name: "RandomPackage",
 		components: {AddPackage},
-        data: function(){
+		data: function(){
             return {
-                allPackages: null
+				randPackage: null
             }
-        },
+		},
         mounted() {
             this.packages = axios
                 .get(
                     'https://my-json-server.typicode.com/naztronaut/e28api/packages'
                 )
                 .then(response => {
-                    this.allPackages = response.data;
+					this.randPackage = response.data[Math.floor(Math.random() * response.data.length)];
                 });
         }
     }
