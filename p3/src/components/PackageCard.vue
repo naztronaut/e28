@@ -4,7 +4,7 @@
 			<h5 class="card-title">{{ pack.name }}</h5>
 			<h6 class="card-subtitle mb-2 text-muted">{{ pack.category }}</h6>
 			<p class="card-text">{{ pack.description }}</p>
-			<add-package-actions :package-id="pack.id"></add-package-actions>
+			<add-package-actions :package-id="pack.id" @look-for-remove="$emit('look-for-remove', pack.id)"></add-package-actions>
 		</div>
 	</div>
 </template>

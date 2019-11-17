@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<router-link class="card-link" exact :to='{name: "packageDetail", params: {id: packageId}}'>View Package Details</router-link>
-		<a href="#" class="card-link" :package-id="packageId" @click.prevent="addToMyPackages">{{ addToPackagesText }}</a>
+		<a href="#" class="card-link" :package-id="packageId" @click.prevent="$emit('look-for-remove', packageId); addToMyPackages()" >{{ addToPackagesText }}</a>
 	</div>
 </template>
 
