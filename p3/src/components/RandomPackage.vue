@@ -1,22 +1,18 @@
 <template>
 	<div>
 		<div class="card text-left" v-if="randPackage != null">
-			<div class="card-body">
-				<h5 class="card-title">{{ randPackage.name }}</h5>
-				<h6 class="card-subtitle mb-2 text-muted">{{ randPackage.category }}</h6>
-				<p class="card-text">{{ randPackage.description }} {{ randPackage.id }} 1</p>
-				<add-package-actions :package-id="randPackage.id"></add-package-actions>
-			</div>
+			<package-card :pack="randPackage"></package-card>
 		</div>
 	</div>
 </template>
 
 <script>
-    import AddPackageActions from './AddPackageActions.vue';
+    // import AddPackageActions from './AddPackageActions.vue';
+    import PackageCard from './PackageCard.vue';
     const axios = require('axios');
     export default {
         name: "RandomPackage",
-		components: {AddPackageActions},
+		components: {PackageCard},
 		data: function(){
             return {
 				randPackage: null

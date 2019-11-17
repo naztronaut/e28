@@ -1,23 +1,18 @@
 <template>
 	<div>
 		<input class="form-control" type="text" v-model="search" @keyup="filterPackages" placeholder="Search Packages"/>
-		<div class="card text-left" v-for='pack in allPackages' :key="pack.id">
-			<div class="card-body">
-				<h5 class="card-title">{{ pack.name }}</h5>
-				<h6 class="card-subtitle mb-2 text-muted">{{ pack.category }}</h6>
-				<p class="card-text">{{ pack.description }}</p>
-				<add-package-actions :package-id="pack.id"></add-package-actions>
-			</div>
+		<div v-for="pack in allPackages" :key="pack.id">
+			<package-card :pack="pack"></package-card>
 		</div>
 	</div>
 </template>
 
 <script>
-	import AddPackageActions from './AddPackageActions.vue';
+	import PackageCard from './PackageCard.vue';
     const axios = require('axios');
     export default {
         name: "AllPackages",
-		components: {AddPackageActions},
+		components: {PackageCard},
         data: function(){
             return {
                 allPackages: null,
