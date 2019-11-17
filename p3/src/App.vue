@@ -8,7 +8,9 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active" v-for='link in links' :key='link.context'>
-            <router-link class="nav-link" exact :to='{name: link.context}'>{{ link.name }}</router-link>
+            <router-link class="nav-link" exact :to='{name: link.context}'>
+              {{ link.name }} <span class="badge badge-secondary" v-if="link.context == 'myPackages'">{{ myPackagesCount.packageCount }}</span>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -19,15 +21,19 @@
 </template>
 
 <script>
-
+import * as config from './config.js';
 export default {
   name: 'app',
   components: {
   },
   data: function () {
       return {
-          links: [{name: 'Home', context: 'home'}, {name: 'All Packages', context: 'allPackages'}, {name: 'My Packages', context: 'myPackages'}]
+          links: [{name: 'Home', context: 'home'}, {name: 'All Packages', context: 'allPackages'}, {name: 'My Packages', context: 'myPackages'}],
+          myPackagesCount: config.selectedPackages
       }
+  },
+  mounted() {
+      config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length;
   }
 }
 </script>

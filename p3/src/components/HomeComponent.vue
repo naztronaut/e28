@@ -2,9 +2,9 @@
 	<div>Welcome to the home component. See some random Vue Packages below!
 		<div class="container">
 			<div class="row">
-				<random-package class="col-4"></random-package>
-				<random-package class="col-4"></random-package>
-				<random-package class="col-4"></random-package>
+				<random-package class="col"></random-package>
+				<random-package class="col"></random-package>
+				<random-package class="col"></random-package>
 			</div>
 		</div>
 	</div>

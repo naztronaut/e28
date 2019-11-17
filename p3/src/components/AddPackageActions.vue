@@ -6,6 +6,7 @@
 </template>
 
 <script>
+	import * as config from './../config.js';
     export default {
         name: "AddPackageActions",
 		props: ['packageId'],
@@ -33,6 +34,10 @@
                     myLocalPackages.push(this.packageId);
                 }
                 localStorage.setItem('myPackages', JSON.stringify(myLocalPackages));
+                
+                config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length;
+                console.log(JSON.parse(localStorage.getItem('myPackages')).length);
+                console.log(config.selectedPackages);
             }
 		},
 		mounted() {
