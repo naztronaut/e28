@@ -2,7 +2,7 @@
 	<div>
 		<div class="container">
 			<div class="row">
-				<div class="col-8">
+				<div class="col-7">
 					<div v-if="myPackages.length > 0">
 						<div v-for="pack in myPackages" :key="pack.id">
 							<package-card :pack="pack" @look-for-remove="lookForRemove($event)"></package-card>
