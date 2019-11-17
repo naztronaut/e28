@@ -1,9 +1,25 @@
 <template>
 	<div>
-		<div v-if="myPackages.length > 0">
-		<div v-for="pack in myPackages" :key="pack.id">
-			<package-card :pack="pack"></package-card>
-		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-8">
+					<div v-if="myPackages.length > 0">
+						<div v-for="pack in myPackages" :key="pack.id">
+							<package-card :pack="pack"></package-card>
+						</div>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="jumbotron">
+						<p class="lead text-left">Quick Install Reference <br /><small>Copy/paste the commands below to install your packages</small></p>
+						<div class="lead text-left" v-if="myPackages.length > 0">
+							<div v-for="pack in myPackages" :key="pack.id">
+								<code>npm i {{ pack.installer }}</code><br />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
