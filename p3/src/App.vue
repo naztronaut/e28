@@ -41,4 +41,8 @@ export default {
   color: #2c3e50;
   /*margin-top: 60px;*/
 }
+
+.nav-item > a.router-link-active{
+  color: #A3A3A3 !important;
+}
 </style>
