@@ -33,13 +33,12 @@
 						});
                     }
                 } else {
+                    this.addToPackagesText = 'Remove Package';
                     myLocalPackages.push(this.packageId);
                 }
                 localStorage.setItem('myPackages', JSON.stringify(myLocalPackages));
                 
                 config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length;
-                console.log(JSON.parse(localStorage.getItem('myPackages')).length);
-                console.log(config.selectedPackages);
             }
 		},
 		mounted() {
