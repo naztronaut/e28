@@ -33,7 +33,9 @@ export default {
       }
   },
   mounted() {
-      config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length || 0;
+      if(localStorage.getItem('myPackages')) {
+          config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length;
+      }
   }
 }
 </script>
