@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<router-link class="card-link" exact :to='{name: "packageDetail", params: {id: packageId}}' v-if="this.$route.fullPath.indexOf('packageDetail') < 0">
-			View Package Details
+		<router-link class="btn btn-info" exact :to='{name: "packageDetail", params: {id: packageId}}' v-if="this.$route.fullPath.indexOf('packageDetail') < 0">
+			View Details
 		</router-link>
-		<a href="#" class="card-link" :package-id="packageId" @click.prevent="$emit('look-for-remove', packageId); addToMyPackages()" >{{ addToPackagesText }}</a>
+		<button class="btn" :class="{'btn-danger': addToPackagesText == 'Remove Package', 'btn-success': addToPackagesText != 'Remove Package'}" :package-id="packageId" @click.prevent="$emit('look-for-remove', packageId); addToMyPackages()" >{{ addToPackagesText }}</button>
 	</div>
 </template>
 
@@ -54,5 +54,7 @@
 </script>
 
 <style scoped>
-
+	.btn {
+		margin: 3px 10px 0 0;
+	}
 </style>
