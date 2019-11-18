@@ -23,7 +23,7 @@
 - Kept the default favicon because it's perfect for this project
 - Refresher on JavaScript filter method: https://www.easyprogramming.net/javascript/array_filter_method.php (disclaimer - this is my content but I often refer to my own work to refresh my memory)
 - Multiple functions from one event handler: https://stackoverflow.com/a/49210431/9948721 - needed a refresher so that I can trigger an event in current component as well as emit an event to the parent.
-- Turn off console errors: https://github.com/vuejs/vue-cli/issues/2266#issuecomment-471737050
+- Turn off console errors: https://github.com/vuejs/vue-cli/issues/2266#issuecomment-471737050 (I later realized I already saw this in the class notes)
 
 ## Notes for instructor
 - The "packages" are all from Npmjs.org.
