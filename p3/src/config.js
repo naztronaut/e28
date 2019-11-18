@@ -3,5 +3,5 @@ export let selectedPackages = {
 };
 
 export const api = {
-    url: ''
+    url: 'https://my-json-server.typicode.com/naztronaut/e28api/packages/'
 };

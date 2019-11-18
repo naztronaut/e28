@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<router-link class="card-link" exact :to='{name: "packageDetail", params: {id: packageId}}'>View Package Details</router-link>
+		<router-link class="card-link" exact :to='{name: "packageDetail", params: {id: packageId}}' v-if="this.$route.fullPath.indexOf('packageDetail') < 0">
+			View Package Details
+		</router-link>
 		<a href="#" class="card-link" :package-id="packageId" @click.prevent="$emit('look-for-remove', packageId); addToMyPackages()" >{{ addToPackagesText }}</a>
 	</div>
 </template>

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    // import AddPackageActions from './AddPackageActions.vue';
+    import * as config from '../config.js';
     import PackageCard from './PackageCard.vue';
     const axios = require('axios');
     export default {
@@ -21,7 +21,7 @@
         mounted() {
             this.packages = axios
                 .get(
-                    'https://my-json-server.typicode.com/naztronaut/e28api/packages'
+                    config.api.url
                 )
                 .then(response => {
 					this.randPackage = response.data[Math.floor(Math.random() * response.data.length)];

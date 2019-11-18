@@ -1,14 +1,17 @@
 <template>
 	<div>
-		<input class="form-control" type="text" v-model="search" @keyup="filterPackages" placeholder="Search Packages"/>
-		<div v-for="pack in allPackages" :key="pack.id">
-			<package-card :pack="pack"></package-card>
+		<div class="container">
+			<input class="form-control" type="text" v-model="search" @keyup="filterPackages" placeholder="Search Packages"/>
+			<div v-for="pack in allPackages" :key="pack.id">
+				<package-card :pack="pack"></package-card>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
 	import PackageCard from './PackageCard.vue';
+	import * as config from '../config.js';
     const axios = require('axios');
     export default {
         name: "AllPackages",
@@ -33,7 +36,7 @@
         mounted() {
             this.packages = axios
                 .get(
-                    'https://my-json-server.typicode.com/naztronaut/e28api/packages'
+                    config.api.url
                 )
                 .then(response => {
                     this.allPackages = response.data;

@@ -1,22 +1,43 @@
 <template>
 	<div>
 		<div class="container">
-			<div class="row">
+			<div class="row" v-if="myPackages.length">
 				<div class="col-7">
-					<div v-if="myPackages.length > 0">
+					<div>
 						<div v-for="pack in myPackages" :key="pack.id">
 							<package-card :pack="pack" @look-for-remove="lookForRemove($event)"></package-card>
 						</div>
 					</div>
 				</div>
 				<div class="col-4">
-					<div class="jumbotron">
-						<p class="lead text-left">Quick Install Reference <br /><small>Copy/paste the commands below to install your packages</small></p>
+					<div class="alert alert-info" role="alert">
+						<h4 class="alert-heading">Quick Install Reference</h4>
+						<p></p>
 						<div class="lead text-left" v-if="myPackages.length > 0">
 							<div v-for="pack in myPackages" :key="pack.id">
 								<code>npm i {{ pack.installer }}</code><br />
 							</div>
 						</div>
+						<hr>
+						<p class="mb-0">Copy/paste the commands above to install your packages!</p>
+					</div>
+					<!--<div class="jumbotron">-->
+						<!--<p class="lead text-left">Quick Install Reference <br /><small>Copy/paste the commands below to install your packages</small></p>-->
+						<!--<div class="lead text-left" v-if="myPackages.length > 0">-->
+							<!--<div v-for="pack in myPackages" :key="pack.id">-->
+								<!--<code>npm i {{ pack.installer }}</code><br />-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+				</div>
+			</div>
+			<div class="row" v-else>
+				<div class="col">
+					<div class="alert alert-warning" role="alert">
+						<h4 class="alert-heading">No Packages Found</h4>
+						<p>Doesn't look like you've added any packages to your list. Go back to 'All Packages' and add a few!</p>
+						<hr>
+						<p class="mb-0">Then come back to this page to see a list of your packages and get a quick install block of code.</p>
 					</div>
 				</div>
 			</div>
@@ -26,6 +47,7 @@
 
 <script>
 	import PackageCard from './PackageCard.vue';
+	import * as config from '../config.js';
     const axios = require('axios');
     export default {
         name: "MyPackages",
@@ -48,19 +70,12 @@
                     packageIds.map( item => {
                         axios
                             .get(
-                                'https://my-json-server.typicode.com/naztronaut/e28api/packages/' + item
+                                config.api.url + item
                             )
                             .then(response => {
                                 this.myPackages.push(response.data);
                             });
                     });
-                } else {
-                    this.myPackages = [{
-                        id: 999,
-                        name: "You didn't add any packages, go back to the All Packages page and add some!",
-                        category: "",
-                        description: ""
-                    }];
                 }
             }
 		},
@@ -71,5 +86,7 @@
 </script>
 
 <style scoped>
-
+.container {
+	margin-top: 30px;
+}
 </style>
