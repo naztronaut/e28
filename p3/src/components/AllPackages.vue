@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="container">
+		<div class="container packagesClass">
 			<input class="form-control" type="text" v-model="search" @keyup="filterPackages" placeholder="Search Packages"/>
 			<div v-for="pack in allPackages" :key="pack.id">
 				<package-card :pack="pack"></package-card>
@@ -49,5 +49,9 @@
 <style scoped>
 	.form-control {
 		margin: 30px 0;
+	}
+	
+	.packagesClass {
+		margin-bottom: 30px;
 	}
 </style>
