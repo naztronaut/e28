@@ -1,6 +1,13 @@
 <template>
 	<div>
 		<div class="container packagesClass">
+			<div class="alert alert-info text-left" role="alert">
+				<h4 class="alert-heading">Vue All Packages</h4>
+				<p>
+					View all available packages below.  Use the Search bar to filter packages. Choose from a huge number (30) of packages!
+				</p>
+			</div>
+			
 			<input class="form-control" type="text" v-model="search" @keyup="filterPackages" placeholder="Search Packages"/>
 			<div v-for="pack in allPackages" :key="pack.id">
 				<package-card :pack="pack"></package-card>
@@ -52,6 +59,6 @@
 	}
 	
 	.packagesClass {
-		margin-bottom: 30px;
+		margin: 30px auto;
 	}
 </style>

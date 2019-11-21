@@ -1,31 +1,43 @@
 <template>
 	<div>
 		<div class="container">
-			<div class="row" v-if="myPackages.length">
-				<div class="col-7">
-					<div>
-						<div v-for="pack in myPackages" :key="pack.id">
-							<package-card :pack="pack" @look-for-remove="lookForRemove($event)"></package-card>
-						</div>
+			<div v-if="myPackages.length">
+				<div class="row">
+					<div class="col">
+					<div class="alert alert-info text-center" role="alert">
+						<h4 class="alert-heading">Vue My Packages</h4>
+						<p>
+							View all packages that you've added.
+						</p>
+					</div>
 					</div>
 				</div>
-				<div class="col-4">
-					<div class="alert alert-info" role="alert">
-						<h4 class="alert-heading">Quick Install Reference</h4>
-						<p></p>
-						<div class="lead text-left" v-if="myPackages.length > 0">
+				<div class="row">
+					<div class="col-7">
+						<div>
 							<div v-for="pack in myPackages" :key="pack.id">
-								<code>npm i {{ pack.installer }}</code><br />
+								<package-card :pack="pack" @look-for-remove="lookForRemove($event)"></package-card>
 							</div>
 						</div>
-						<hr>
-						<p class="mb-0">Copy/paste the commands above to install your packages!</p>
+					</div>
+					<div class="col-4">
+						<div class="alert alert-warning" role="alert">
+							<h4 class="alert-heading">Quick Install Reference</h4>
+							<p></p>
+							<div class="lead text-left" v-if="myPackages.length > 0">
+								<div v-for="pack in myPackages" :key="pack.id">
+									<code>npm i {{ pack.installer }}</code><br />
+								</div>
+							</div>
+							<hr>
+							<p class="mb-0">Copy/paste the commands above to install your packages!</p>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row" v-else>
 				<div class="col">
-					<div class="alert alert-warning" role="alert">
+					<div class="alert alert-danger" role="alert">
 						<h4 class="alert-heading">No Packages Found</h4>
 						<p>Doesn't look like you've added any packages to your list. Go back to 'All Packages' and add a few!</p>
 						<hr>

@@ -29,6 +29,8 @@
 ## Notes for instructor
 - The "packages" are all from Npmjs.org.
 - The "license" and "weekly" downloads stats were randomly set. The name, install code, and description will match NPM though.
-- 3 Random Packages are shown on the home page - I didn't do any validation for duplicates but they've been rare
+- 3 Random Packages are shown on the home page - I didn't do any validation for duplicates but they've been very rare
 - The cards on the home component don't auto-adjust to match height. I had trouble getting them to align properly because the descriptions for some are way longer than others.
 - Navigation acts weird on screen sizes smaller than 576px in width. The site is not optimized for mobile.
+- Right before submitting, I did a final test and noticed that my-json-server was being slow. It was taking 2-5 seconds to return data. I didn't implement any kind of loading screen so the
+three pages that make AJAX requests to my-json-server could appear blank or say "no packages found" for a few seconds.
