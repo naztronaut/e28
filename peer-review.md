@@ -18,7 +18,7 @@ The app works really well! I haven't run into any errors or unexpected results. 
         "energy": 670,
         "carbohydrate": 8.53,
         "sugars": 0.66,
-        // left out the rest
+        /* left out the rest */
         },
     "categories": [
         "vegetable",
@@ -57,3 +57,5 @@ You set up the api url in your `app.js` and have used it elsewhere in the app bu
 ### Do you have any additional comments not covered in the above questions?
 
 Great work on this project! It's easy to follow and understand and I think anyone using this for the first time will have no problem. The idea and execution was great and I enjoyed going through the app! 
+
+One thing I've learned over the years when using git is to commit a lot. It makes rolling back easier and if you work with others, it helps you see the thought process that you all are going through. I fail to follow my own advice a lot of the time with personal projects but at my job, I've gotten used to commiting every time I change something significant (don't really have to push until you are ready). 
