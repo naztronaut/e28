@@ -21,7 +21,7 @@
         mounted() {
             this.packages = axios
                 .get(
-                    config.api.url
+                    config.api.url + '.json'
                 )
                 .then(response => {
 					this.randPackage = response.data[Math.floor(Math.random() * response.data.length)];

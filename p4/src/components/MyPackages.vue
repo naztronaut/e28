@@ -74,7 +74,7 @@
                     packageIds.map( item => {
                         axios
                             .get(
-                                config.api.url + item
+                                config.api.url + '/' +item + '.json'
                             )
                             .then(response => {
                                 this.myPackages.push(response.data);

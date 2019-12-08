@@ -43,11 +43,11 @@
         mounted() {
             this.packages = axios
                 .get(
-                    config.api.url
+                    config.api.url + '.json'
                 )
                 .then(response => {
-                    this.allPackages = response.data;
-                    this.filteredPackages = response.data;
+                    this.allPackages = response.data.splice(1);
+                    this.filteredPackages = response.data.splice(1);
                 });
         }
     }

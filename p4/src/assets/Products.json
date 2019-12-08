@@ -1,5 +1,6 @@
 {
   "packages": [
+    {"id": 0},
     {
       "id": 1,
       "name": "bootstrap-vue",
@@ -269,9 +270,7 @@
       "category": "AJAX",
       "downloads": 147623,
       "license": "MIT"
-    }
-    ],
-    "myPackages": [
+    },
     {
       "id": 31,
       "name": "lowercase-keys",

@@ -43,7 +43,7 @@
         mounted() {
             axios
                 .get(
-                    config.api.url + this.id
+                    config.api.url + '/' + this.id + '.json'
                 )
                 .then(response => {
                     this.packageDetail = response.data;

@@ -3,5 +3,5 @@ export let selectedPackages = {
 };
 
 export const api = {
-    url: 'https://my-json-server.typicode.com/naztronaut/e28api/packages/'
+    url: 'https://vue-package-manager.firebaseio.com/packages'
 };
