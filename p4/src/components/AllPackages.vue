@@ -8,7 +8,7 @@
 				</p>
 			</div>
 			
-			<input class="form-control" type="text" v-model="search" @keyup="filterPackages" placeholder="Search Packages"/>
+			<input class="form-control" type="text" v-model="search" placeholder="Search Packages"/>
 			<div v-for="pack in allPackages" :key="pack.id">
 				<package-card :pack="pack"></package-card>
 			</div>
@@ -18,37 +18,42 @@
 
 <script>
 	import PackageCard from './PackageCard.vue';
-	import * as config from '../config.js';
-    const axios = require('axios');
+    // import * as config from '../config.js';
+    // const axios = require('axios');
     export default {
         name: "AllPackages",
 		components: {PackageCard},
         data: function(){
             return {
-                allPackages: null,
 				filteredPackages: null,
-				search: null
+				search: ''
             }
         },
 		methods: {
-            filterPackages: function () {
-				this.allPackages = this.filteredPackages.filter( item => {
-					let searchItem = this.search.toLowerCase();
-					return  (item.name.toLowerCase().indexOf(searchItem) > -1) ||
-						(item.category.toLowerCase().indexOf(searchItem) > -1) ||
-						(item.description.toLowerCase().indexOf(searchItem) > -1);
-				});
+            // filterPackages: function () {
+				// this.listPackages = this.filteredPackages.filter( item => {
+				// 	let searchItem = this.search.toLowerCase();
+				// 	return  (item.name.toLowerCase().indexOf(searchItem) > -1) ||
+				// 		(item.category.toLowerCase().indexOf(searchItem) > -1) ||
+				// 		(item.description.toLowerCase().indexOf(searchItem) > -1);
+				// });
+            // }
+		},
+		computed: {
+            allPackages: function() {
+                return this.$store.getters.getPackages(this.search);
             }
 		},
         mounted() {
-            this.packages = axios
-                .get(
-                    config.api.url + '.json'
-                )
-                .then(response => {
-                    this.allPackages = response.data.splice(1);
-                    this.filteredPackages = response.data.splice(1);
-                });
+            // this.allPackages = this.listPackages();
+            // this.packages = axios
+            //     .get(
+            //         config.api.url + '.json'
+            //     )
+            //     .then(response => {
+            //         this.allPackages = response.data.splice(1);
+            //         this.filteredPackages = response.data.splice(1);
+            //     });
         }
     }
 </script>

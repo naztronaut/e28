@@ -42,6 +42,7 @@ export default {
       if(localStorage.getItem('myPackages')) {
           this.$store.commit('setPackageCount', JSON.parse(localStorage.getItem('myPackages')).length);
       }
+      this.$store.dispatch('setPackages');
   }
 }
 </script>

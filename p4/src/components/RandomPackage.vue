@@ -7,25 +7,30 @@
 </template>
 
 <script>
-    import * as config from '../config.js';
+    // import * as config from '../config.js';
     import PackageCard from './PackageCard.vue';
-    const axios = require('axios');
+    // const axios = require('axios');
     export default {
         name: "RandomPackage",
 		components: {PackageCard},
 		data: function(){
             return {
-				randPackage: null
+				// randPackage: null
             }
 		},
+        computed: {
+            randPackage: function() {
+                return this.$store.state.packages[Math.floor(Math.random() * this.$store.state.packages.length)];
+            }
+        },
         mounted() {
-            this.packages = axios
-                .get(
-                    config.api.url + '.json'
-                )
-                .then(response => {
-					this.randPackage = response.data[(Math.floor(Math.random() * response.data.length)) + 1];
-                });
+            // this.packages = axios
+            //     .get(
+            //         config.api.url + '.json'
+            //     )
+            //     .then(response => {
+				// 	this.randPackage = response.data[(Math.floor(Math.random() * response.data.length)) + 1];
+            //     });
         }
     }
 </script>

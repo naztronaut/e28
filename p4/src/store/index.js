@@ -16,6 +16,9 @@ export default new Vuex.Store({
         },
         updatePackageCount(state, payload) {
             state.packageCount += payload;
+        },
+        setPackages(state, payload) {
+            state.packages = payload;
         }
     },
     actions: {
@@ -26,6 +29,17 @@ export default new Vuex.Store({
                 ).then(response => {
                     ctx.commit('setPackages', response.data.splice(1))
             });
+        }
+    },
+    getters: {
+        getPackages(state) {
+            return function (searchItem) {
+                return state.packages.filter( item => {
+                    return  (item.name.toLowerCase().indexOf(searchItem) > -1) ||
+                        (item.category.toLowerCase().indexOf(searchItem) > -1) ||
+                        (item.description.toLowerCase().indexOf(searchItem) > -1);
+                });
+            }
         }
     }
 })
