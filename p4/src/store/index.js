@@ -14,9 +14,6 @@ export default new Vuex.Store({
         setPackageCount(state, payload) {
             state.packageCount = payload;
         },
-        updatePackageCount(state, payload) {
-            state.packageCount += payload;
-        },
         setPackages(state, payload) {
             state.packages = payload;
         }
@@ -39,6 +36,24 @@ export default new Vuex.Store({
                         (item.category.toLowerCase().indexOf(searchItem) > -1) ||
                         (item.description.toLowerCase().indexOf(searchItem) > -1);
                 });
+            }
+        },
+        getSinglePackage(state) {
+            return function (id) {
+                return state.packages.filter(pack => {
+                    return pack.id == id;
+                })
+            }
+        },
+        getMyPackages(state) {
+            return function (ids) {
+                let myPackages = [];
+                ids.map( id => {
+                    state.packages.map(pack => {
+                        (pack.id == id) ? myPackages.push(pack) : '';
+                    })
+                });
+                return myPackages;
             }
         }
     }

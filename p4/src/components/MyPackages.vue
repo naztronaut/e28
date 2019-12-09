@@ -14,9 +14,9 @@
 				</div>
 				<div class="row">
 					<div class="col-7">
-						<div>
+						<div v-if="myPackages.length > 0">
 							<div v-for="pack in myPackages" :key="pack.id">
-								<package-card :pack="pack" @look-for-remove="lookForRemove($event)"></package-card>
+								<package-card :pack="pack" @look-for-remove="lookForRemove"></package-card>
 							</div>
 						</div>
 					</div>
@@ -51,40 +51,46 @@
 
 <script>
 	import PackageCard from './PackageCard.vue';
-	import * as config from '../config.js';
-    const axios = require('axios');
+    // import * as config from '../config.js';
+    // const axios = require('axios');
     export default {
         name: "MyPackages",
 		components: {PackageCard},
 		data: function(){
             return {
-                myPackages: []
+                // myPackages: []
             }
 		},
 		methods: {
-            lookForRemove: function (id) {
-                this.myPackages = this.myPackages.filter( item => {
-                   return item.id != id;
-                });
+            lookForRemove: function () {
+                // this.myPackages = this.myPackages.filter( item => {
+                //    return item.id != id;
+                // });
+                // this.myPackage.;
             },
 			loadData: function () {
-                if(localStorage.getItem('myPackages')) {
-                    this.myPackages = [];
-                    let packageIds = JSON.parse(localStorage.getItem('myPackages'));
-                    packageIds.map( item => {
-                        axios
-                            .get(
-                                config.api.url + '/' +item + '.json'
-                            )
-                            .then(response => {
-                                this.myPackages.push(response.data);
-                            });
-                    });
-                }
+                // if(localStorage.getItem('myPackages')) {
+                //     this.myPackages = [];
+                //     let packageIds = JSON.parse(localStorage.getItem('myPackages'));
+                //     packageIds.map( item => {
+                //         axios
+                //             .get(
+                //                 config.api.url + '/' +item + '.json'
+                //             )
+                //             .then(response => {
+                //                 this.myPackages.push(response.data);
+                //             });
+                //     });
+                // }
+            }
+		},
+		computed: {
+            myPackages: function () {
+				return this.$store.getters.getMyPackages(JSON.parse(localStorage.getItem('myPackages')));
             }
 		},
         mounted() {
-            this.loadData();
+            // this.loadData();
         }
     }
 </script>
