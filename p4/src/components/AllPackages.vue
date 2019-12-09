@@ -18,8 +18,7 @@
 
 <script>
 	import PackageCard from './PackageCard.vue';
-    // import * as config from '../config.js';
-    // const axios = require('axios');
+
     export default {
         name: "AllPackages",
 		components: {PackageCard},
@@ -29,32 +28,11 @@
 				search: ''
             }
         },
-		methods: {
-            // filterPackages: function () {
-				// this.listPackages = this.filteredPackages.filter( item => {
-				// 	let searchItem = this.search.toLowerCase();
-				// 	return  (item.name.toLowerCase().indexOf(searchItem) > -1) ||
-				// 		(item.category.toLowerCase().indexOf(searchItem) > -1) ||
-				// 		(item.description.toLowerCase().indexOf(searchItem) > -1);
-				// });
-            // }
-		},
 		computed: {
             allPackages: function() {
                 return this.$store.getters.getPackages(this.search);
             }
-		},
-        mounted() {
-            // this.allPackages = this.listPackages();
-            // this.packages = axios
-            //     .get(
-            //         config.api.url + '.json'
-            //     )
-            //     .then(response => {
-            //         this.allPackages = response.data.splice(1);
-            //         this.filteredPackages = response.data.splice(1);
-            //     });
-        }
+		}
     }
 </script>
 
