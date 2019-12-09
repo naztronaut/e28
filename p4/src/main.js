@@ -6,6 +6,7 @@ import HomeComponent from './components/HomeComponent.vue';
 import MyPackages from './components/MyPackages.vue';
 import AllPackages from './components/AllPackages.vue';
 import PackageDetail from './components/PackageDetail.vue';
+import store from './store';
 
 Vue.config.productionTip = false
 
@@ -25,6 +26,7 @@ const router = new VueRouter({
 });
 
 new Vue({
+  store: store,
   router: router,
   render: h => h(App),
 }).$mount('#app')

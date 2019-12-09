@@ -9,7 +9,7 @@
         <ul class="navbar-nav">
           <li class="nav-item active" v-for='link in links' :key='link.context'>
             <router-link class="nav-link" exact :to='{name: link.context}'>
-              {{ link.name }} <span class="badge badge-secondary" v-if="link.context == 'myPackages'">{{ myPackagesCount.packageCount }}</span>
+              {{ link.name }} <span class="badge badge-secondary" v-if="link.context == 'myPackages'">{{ packageCount }}</span>
             </router-link>
           </li>
         </ul>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import * as config from './config.js';
+// import * as config from './config.js';
 export default {
   name: 'app',
   components: {
@@ -29,12 +29,18 @@ export default {
   data: function () {
       return {
           links: [{name: 'Home', context: 'home'}, {name: 'All Packages', context: 'allPackages'}, {name: 'My Packages', context: 'myPackages'}],
-          myPackagesCount: config.selectedPackages
+          // myPackagesCount: config.selectedPackages
       }
   },
+  computed: {
+    packageCount: function () {
+        return this.$store.state.packageCount;
+    }
+  },
   mounted() {
+      // this.$store.commit('setPackageCount', this.packageCount());
       if(localStorage.getItem('myPackages')) {
-          config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length;
+          this.$store.commit('setPackageCount', JSON.parse(localStorage.getItem('myPackages')).length);
       }
   }
 }

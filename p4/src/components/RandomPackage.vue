@@ -24,7 +24,7 @@
                     config.api.url + '.json'
                 )
                 .then(response => {
-					this.randPackage = response.data[Math.floor(Math.random() * response.data.length)];
+					this.randPackage = response.data[(Math.floor(Math.random() * response.data.length)) + 1];
                 });
         }
     }

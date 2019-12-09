@@ -8,7 +8,7 @@
 </template>
 
 <script>
-	import * as config from './../config.js';
+	// import * as config from './../config.js';
     let VanillaToasts = require('vanillatoasts');
     export default {
         name: "AddPackageActions",
@@ -42,7 +42,8 @@
                 }
                 localStorage.setItem('myPackages', JSON.stringify(myLocalPackages));
                 
-                config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length;
+                // config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length;
+				this.$store.commit('setPackageCount', JSON.parse(localStorage.getItem('myPackages')).length);
             },
 			toastMsg: function (title, type) {
 				VanillaToasts.create({
