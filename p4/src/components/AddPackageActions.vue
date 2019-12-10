@@ -8,7 +8,6 @@
 </template>
 
 <script>
-	// import * as config from './../config.js';
     let VanillaToasts = require('vanillatoasts');
     export default {
         name: "AddPackageActions",
@@ -20,30 +19,30 @@
         },
 		methods: {
             addToMyPackages: function () {
-                let myLocalPackages = [];
-                if(localStorage.getItem('myPackages')){
-                    myLocalPackages = JSON.parse(localStorage.getItem('myPackages'));
-                    if(!myLocalPackages.includes(this.packageId)) {
-                        myLocalPackages.push(this.packageId);
-                        this.addToPackagesText = 'Remove Package';
-                        this.toastMsg('Package Added Successfully', 'success');
+                if(this.$route.name != 'myPackages') {
+                    let myLocalPackages = [];
+                    if (localStorage.getItem('myPackages')) {
+                        myLocalPackages = JSON.parse(localStorage.getItem('myPackages'));
+                        if (!myLocalPackages.includes(this.packageId)) {
+                            myLocalPackages.push(this.packageId);
+                            this.addToPackagesText = 'Remove Package';
+                            this.toastMsg('Package Added Successfully', 'success');
+                        } else {
+                            // Remove package
+                            this.addToPackagesText = 'Add Package';
+                            myLocalPackages = myLocalPackages.filter(item => {
+                                return item != this.packageId;
+                            });
+                            this.toastMsg('Package Removed Successfully', 'error');
+                        }
                     } else {
-                        // Remove package
-                        this.addToPackagesText = 'Add Package';
-						myLocalPackages = myLocalPackages.filter( item => {
-							return item != this.packageId;
-						});
-                        this.toastMsg('Package Removed Successfully', 'error');
+                        this.addToPackagesText = 'Remove Package';
+                        myLocalPackages.push(this.packageId);
+                        this.toastMsg('Package Added Successfully', 'success');
                     }
-                } else {
-                    this.addToPackagesText = 'Remove Package';
-                    myLocalPackages.push(this.packageId);
-                    this.toastMsg('Package Added Successfully', 'success');
+                    localStorage.setItem('myPackages', JSON.stringify(myLocalPackages));
+					this.$store.commit('setPackageCount', JSON.parse(localStorage.getItem('myPackages')).length);
                 }
-                localStorage.setItem('myPackages', JSON.stringify(myLocalPackages));
-                
-                // config.selectedPackages.packageCount = JSON.parse(localStorage.getItem('myPackages')).length;
-				this.$store.commit('setPackageCount', JSON.parse(localStorage.getItem('myPackages')).length);
             },
 			toastMsg: function (title, type) {
 				VanillaToasts.create({
@@ -52,6 +51,7 @@
 					timeout: 3000
 				});
             }
+            
 		},
 		mounted() {
             if(localStorage.getItem('myPackages')){

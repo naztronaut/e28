@@ -51,46 +51,43 @@
 
 <script>
 	import PackageCard from './PackageCard.vue';
-    // import * as config from '../config.js';
-    // const axios = require('axios');
+    let VanillaToasts = require('vanillatoasts');
     export default {
         name: "MyPackages",
 		components: {PackageCard},
 		data: function(){
             return {
-                // myPackages: []
+				myPackagesLocalStorage: []
             }
 		},
 		methods: {
-            lookForRemove: function () {
-                // this.myPackages = this.myPackages.filter( item => {
-                //    return item.id != id;
-                // });
-                // this.myPackage.;
+            lookForRemove: function ($event) {
+                this.myPackagesLocalStorage = JSON.parse(localStorage.getItem('myPackages'));
+                
+                this.myPackagesLocalStorage = this.myPackagesLocalStorage.filter(item => {
+                    return item != $event;
+                });
+                localStorage.setItem('myPackages', JSON.stringify(this.myPackagesLocalStorage));
+                this.$store.commit('setPackageCount', JSON.parse(localStorage.getItem('myPackages')).length);
+                this.toastMsg('Package Removed Successfully', 'error');
             },
-			loadData: function () {
-                // if(localStorage.getItem('myPackages')) {
-                //     this.myPackages = [];
-                //     let packageIds = JSON.parse(localStorage.getItem('myPackages'));
-                //     packageIds.map( item => {
-                //         axios
-                //             .get(
-                //                 config.api.url + '/' +item + '.json'
-                //             )
-                //             .then(response => {
-                //                 this.myPackages.push(response.data);
-                //             });
-                //     });
-                // }
-            }
+			toastMsg: function (title, type) {
+				VanillaToasts.create({
+				title: title,
+				type: type,
+				timeout: 3000
+				});
+			}
 		},
 		computed: {
             myPackages: function () {
-				return this.$store.getters.getMyPackages(JSON.parse(localStorage.getItem('myPackages')));
+				return this.$store.getters.getMyPackages(this.myPackagesLocalStorage);
             }
 		},
         mounted() {
-            // this.loadData();
+			if(localStorage.getItem('myPackages')) {
+                this.myPackagesLocalStorage = JSON.parse(localStorage.getItem('myPackages'));
+            }
         }
     }
 </script>
