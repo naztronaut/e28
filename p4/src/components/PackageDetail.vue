@@ -4,7 +4,6 @@
 			<div class="card text-left" v-if="packageDetail != null">
 				<div class="card-header bg-transparent font-weight-bold"><h2>{{ packageDetail.name }}</h2></div>
 				<div class="card-body">
-					<!--<h5 class="card-title">{{ packageDetail.name }}</h5>-->
 					<h6 class="card-subtitle mb-2 text-muted">{{ packageDetail.category }}</h6>
 					<p class="card-text">{{ packageDetail.description }}</p>
 					<p class="card-text">
@@ -28,27 +27,19 @@
 </template>
 
 <script>
-	import * as config from '../config.js';
 	import AddPackageActions from './AddPackageActions.vue';
-    const axios = require('axios');
     export default {
         name: "PackageDetail",
 		components: {AddPackageActions},
 		props: ['id'],
 		data: function () {
-			return {
-				packageDetail: null
-			}
+			return {}
         },
-        mounted() {
-            axios
-                .get(
-                    config.api.url + '/' + this.id + '.json'
-                )
-                .then(response => {
-                    this.packageDetail = response.data;
-                });
-        }
+		computed: {
+            packageDetail: function() {
+                return this.$store.getters.getSinglePackage(this.id)[0];
+            }
+		}
     }
 </script>
 
