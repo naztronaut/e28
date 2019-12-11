@@ -2,7 +2,7 @@
 	<div class="container">
 		<div>
 			<div class="card text-left" v-if="packageDetail != null">
-				<div class="card-header bg-transparent font-weight-bold"><h2>{{ packageDetail.name }}</h2></div>
+				<div class="card-header bg-transparent font-weight-bold" data-test="cardTitle"><h2>{{ packageDetail.name }}</h2></div>
 				<div class="card-body">
 					<h6 class="card-subtitle mb-2 text-muted">{{ packageDetail.category }}</h6>
 					<p class="card-text">{{ packageDetail.description }}</p>

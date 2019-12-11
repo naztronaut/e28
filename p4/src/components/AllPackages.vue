@@ -2,7 +2,7 @@
 	<div>
 		<div class="container packagesClass">
 			<div class="alert alert-info text-left" role="alert">
-				<h4 class="alert-heading">Vue All Packages</h4>
+				<h4 class="alert-heading" data-test="pageName">Vue All Packages</h4>
 				<p>
 					View all available packages below.  Use the Search bar to filter packages. Choose from a huge number (30) of packages!
 				</p>

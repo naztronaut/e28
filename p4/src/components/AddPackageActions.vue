@@ -3,7 +3,7 @@
 		<router-link class="btn btn-info" exact :to='{name: "packageDetail", params: {id: packageId}}' v-if="this.$route.fullPath.indexOf('packageDetail') < 0">
 			View Details
 		</router-link>
-		<button class="btn" :class="{'btn-danger': addToPackagesText == 'Remove Package', 'btn-success': addToPackagesText != 'Remove Package'}" :package-id="packageId" @click.prevent="$emit('look-for-remove', packageId); addToMyPackages()" >{{ addToPackagesText }}</button>
+		<button data-test="addPackage" class="btn" :class="{'btn-danger': addToPackagesText == 'Remove Package', 'btn-success': addToPackagesText != 'Remove Package'}" :package-id="packageId" @click.prevent="$emit('look-for-remove', packageId); addToMyPackages()" >{{ addToPackagesText }}</button>
 	</div>
 </template>
 
