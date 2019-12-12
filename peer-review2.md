@@ -44,7 +44,7 @@ There's a `merch` component but I don't see it used anywhere and visiting it doe
     component: Merch
 }
 ```
-Comments around unused components and code would be useful. Removing them would be preferred (e.g. HelloWorld.vue is still in the project).
+Comments around unused components and code would be useful. Removing them would be preferred (e.g. `HelloWorld.vue` is still in the project).
 
 The app is mostly easy to read through, however there are a lot of commented out code. It's scary to delete code because you could need it at any moment in the future, but that's why version control is awesome. My advice is to  commit often (especially if you add a major piece or remove something) and add useful comments. If you ever need some code reverted, you can always go back to your code history. 
 
@@ -61,10 +61,22 @@ When adding a show to favorites, it adds a new object to localStorage. It actual
 
 The `node_modules` directory was pushed to git. It's best practice to add that to your `.gitignore` file and not push to any version control host. The directory is huge so cloning the directory can take a while. 
 
-I mentioned this earlier, but removing unused code is always good practice. Use your commit history on Github to save your work instead. 
+I mentioned this earlier, but removing unused code is always good practice. Here's one example from `MusicianFavoriteList.vue`:
+
+```js
+// (it.sVenue != null
+//   ? it.sVenue
+//       .toString()
+//       .toLowerCase()
+//       .includes(text)
+//   : "") ||
+```
+Use your commit history on Github to save your work instead. 
 
 Speaking of commit history, I personally recommend adding detailed comments because your future-self can find it very  helpful. A lot of comments are very generic and are repeated multiple times. 
 
 ### Do you have any additional comments not covered in the above questions?
 
 Great work on the login system. Although it's stored in localStorage now, it should be easy to take and turn into an actual authentication system. I like the implementation and execution. The app is fairly simple and easy to follow in the UI. The structure of the project was also good. 
+
+I noticed that there are a lot of videos in the repo and in your Readme, you said you borrowed the videos from YouTube. I think it would have been good to just embed the YouTube videos instead of uploading your own. It would save space and make loading those pieces much faster. With that said, a lot of those assets were never used in the app so they could have been removed. 
