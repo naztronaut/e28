@@ -3,5 +3,6 @@ export let selectedPackages = {
 };
 
 export const api = {
-    url: 'https://vue-package-manager.firebaseio.com/packages'
+    url: 'https://vue-package-manager.firebaseio.com/packages',
+    suggestedPackagesUrl: 'https://vue-package-manager.firebaseio.com/suggestedPackages.json',
 };

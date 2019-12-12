@@ -6,6 +6,7 @@ import HomeComponent from './components/HomeComponent.vue';
 import MyPackages from './components/MyPackages.vue';
 import AllPackages from './components/AllPackages.vue';
 import PackageDetail from './components/PackageDetail.vue';
+import SuggestPackage from './components/SuggestPackage.vue';
 import store from './store';
 
 Vue.config.productionTip = false
@@ -17,6 +18,7 @@ const routes = [
     {path: '/myPackages', name: 'myPackages', component: MyPackages},
     {path: '/allPackages', name: 'allPackages', component: AllPackages},
     {path: '/packageDetail/:id',  name: 'packageDetail', component: PackageDetail, props: true},
+    {path: '/suggestPackage', name: 'suggestPackage', component: SuggestPackage},
     {path: '*', redirect: '/'}
 ];
 

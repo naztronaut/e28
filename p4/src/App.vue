@@ -28,7 +28,7 @@ export default {
   },
   data: function () {
       return {
-          links: [{name: 'Home', context: 'home'}, {name: 'All Packages', context: 'allPackages'}, {name: 'My Packages', context: 'myPackages'}],
+          links: [{name: 'Home', context: 'home'}, {name: 'All Packages', context: 'allPackages'}, {name: 'My Packages', context: 'myPackages'}, {name: "Suggest a Package", context: 'suggestPackage'}],
           // myPackagesCount: config.selectedPackages
       }
   },

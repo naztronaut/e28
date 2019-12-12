@@ -307,5 +307,8 @@
   "downloads": 147623,
       "license": "MIT"
     }
+  ],
+  "suggestedPackages": [
+    {"id": 0}
   ]
 }
