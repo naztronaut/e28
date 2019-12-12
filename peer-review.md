@@ -1,7 +1,7 @@
 ## P3 Peer Review
 
 + Reviewer's name: Nazmus Nasir
-+ Reviwee's name: Ping Ji
++ Reviewee's name: Ping Ji
 + URL to reviewee's Github repo: *https://github.com/pingji00/e28*
 
 
