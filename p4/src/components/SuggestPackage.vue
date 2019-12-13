@@ -4,9 +4,9 @@
 			<div class="form-group row">
 				<label for="packageName" class="col-sm-2 col-form-label text-right">Name:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="packageName" placeholder="Package Name" v-model="$v.newPackage.name.$model">
-					<div class="text-left" :class='{ "form-feedback-error": $v.newPackage.name.$dirty }' v-if='!$v.newPackage.name.required && $v.newPackage.name.$dirty'>Package name is required.</div>
-					<div class="text-left" :class='{ "form-feedback-error": $v.newPackage.name.$dirty }' v-if='!$v.newPackage.name.minLength && $v.newPackage.name.$dirty'>At least 2 characters is required.</div>
+					<input type="text" class="form-control" id="packageName" placeholder="Package Name" v-model="$v.newPackage.name.$model" data-test="formName">
+					<div class="text-left" :class='{ "form-feedback-error": $v.newPackage.name.$dirty }' v-if='!$v.newPackage.name.required && $v.newPackage.name.$dirty' data-test="packageNameValidation">Package name is required.</div>
+					<div class="text-left" :class='{ "form-feedback-error": $v.newPackage.name.$dirty }' v-if='!$v.newPackage.name.minLength && $v.newPackage.name.$dirty' data-test="packageLenValidation">At least 2 characters is required.</div>
 				</div>
 				
 			</div>
@@ -20,8 +20,8 @@
 				<label for="packageInstaller" class="col-sm-2 col-form-label text-right">Installer:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="packageInstaller" placeholder="e.g. my-package-install-command" v-model="newPackage.installer">
-					<div class="text-left" :class='{ "form-feedback-error": $v.newPackage.name.$dirty }' v-if='!$v.newPackage.name.required && $v.newPackage.name.$dirty'>Package name is required.</div>
-					<div class="text-left" :class='{ "form-feedback-error": $v.newPackage.name.$dirty }' v-if='!$v.newPackage.name.minLength && $v.newPackage.name.$dirty'>At least 2 characters is required.</div>
+					<div class="text-left" :class='{ "form-feedback-error": $v.newPackage.installer.$dirty }' v-if='!$v.newPackage.installer.required && $v.newPackage.installer.$dirty'>Package name is required.</div>
+					<div class="text-left" :class='{ "form-feedback-error": $v.newPackage.installer.$dirty }' v-if='!$v.newPackage.installer.minLength && $v.newPackage.installer.$dirty'>At least 2 characters is required.</div>
 				</div>
 				
 			</div>
