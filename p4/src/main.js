@@ -8,10 +8,12 @@ import AllPackages from './components/AllPackages.vue';
 import PackageDetail from './components/PackageDetail.vue';
 import SuggestPackage from './components/SuggestPackage.vue';
 import store from './store';
+import Vuelidate from 'vuelidate'
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter);
+Vue.use(Vuelidate)
 
 const routes = [
     {path: '/', name: 'home', component: HomeComponent},
