@@ -32,9 +32,9 @@ export default new Vuex.Store({
         getPackages(state) {
             return function (searchItem) {
                 return state.packages.filter( item => {
-                    return  (item.name.toLowerCase().indexOf(searchItem) > -1) ||
-                        (item.category.toLowerCase().indexOf(searchItem) > -1) ||
-                        (item.description.toLowerCase().indexOf(searchItem) > -1);
+                    return  (item.name.toLowerCase().indexOf(searchItem.toLowerCase()) > -1) ||
+                        (item.category.toLowerCase().indexOf(searchItem.toLowerCase()) > -1) ||
+                        (item.description.toLowerCase().indexOf(searchItem.toLowerCase()) > -1);
                 });
             }
         },
