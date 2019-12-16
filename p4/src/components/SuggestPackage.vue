@@ -95,6 +95,7 @@
                                 category: '',
                                 license: ''
                             };
+                            this.$v.$reset();
                         })
                 }
             },
