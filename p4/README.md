@@ -1,26 +1,11 @@
 # Project 4
 + By: Nazmus Nasir
-+ Production URL: [http://p4.nazm.us](http://p4.nazm.us)
++ Production URL: [https://p4.nazm.us](https://p4.nazm.us)
 
 
-## Outline of features
-*Brief list summarizing the features of your app*
-* It's similar to npmjs.org
-* It stores packages that you add to localStorage - it stores an array of IDs and will do an AJAX call later to retrieve details for each package.
-* Home Component with a welcome message and displays 3 random "Vue Packages" available to the end user
-  * Users can view details for each package or add/remove it to/from their list (My Packages)
-* All Packages component has a list of all 34 Vue Packages in a card
-  * Can view more details for each package as well as add or remove packages from their list
-  * There's a "Search" option which will filter based on keyword as you type (on keyup event). It filters title, category, and descriptions.
-* My Packages component lists all packages that you added from any other page.
-  * The "My Packages" navigation menu should have a badge with the number of packages in your list. It auto updates as you add/remove packages.
-  * It compiles a list of "install" commands to the right for all of your packages. It allows for easy copy/paste into your CLI.
-* Suggest a Package
-  * Allows a user to "Suggest A Package" - only the name and installer are mandatory fields before submission.
-  * Fields are validated using Vuelidate
-  * Submitted packages will not appear on All Packages until they are approved (they are never approved in this app since it's just a point of concept).
-  * Suggested packages cannot be removed
-
+## Improvements based on P3 peer review feedback
+- After you add a package, and then you go to 'My Packages,' a default message is viewed for a fraction of a second while the AJAX call is made to retrieve info. Using Vuex solved it automatically since there's no more
+waiting for AJAX and the data can be retrieved from the state instead.
 
 ## Outside resources
 - The 34 Vue Packages that I used for my mock data are all taken from Npmjs.com. I browsed through and picked 30 random ones within certain categories.
